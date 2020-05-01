@@ -131,10 +131,10 @@ function convertData(runs) {
                 y: run.times.primary_t, // seconds
             }
         });
-        /*data.push({
+        data.push({
             t: new Date(),
             y: data[data.length-1].y, // latest run
-        });*/ // Too cluttered
+        }); // Too cluttered
         var player = runs[0].players.data[0];
         return {
             label: player.names.international, // Runner name
