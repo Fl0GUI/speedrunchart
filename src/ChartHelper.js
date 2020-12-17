@@ -91,9 +91,9 @@ function convertData(runs) {
     });
     data.push({
       t: new Date(),
-      y: data[data.length-1].y, // latest run
+      y: data.length ? data[data.length-1].y : undefined, // latest run
     }); // Too cluttered
-    var player = runs[0].players.data[0];
+    var player = user.player;
     return {
       label: player.names.international, // Runner name
       data: data,
