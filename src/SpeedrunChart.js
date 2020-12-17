@@ -1,5 +1,7 @@
 import React from 'react';
 import drawChart from  './ChartHelper.js';
+import Chart from 'chart.js';
+import zoom from 'chartjs-plugin-zoom';
 var fetchUrl = require('node-fetch');
 
 function fetchData() {
@@ -19,7 +21,7 @@ function fetchData() {
     }
 
     const game = "Hollow Knight";
-    const nplayers = 30;
+    const nplayers = 5;
     var gameID, categoryID, variableKey, variableVal;
     return fetchJson(`https://www.speedrun.com/api/v1/games?name=${game}` // Give game
     ).then((games) => { // Get game give category and leaderboardURI
@@ -67,9 +69,12 @@ function fetchData() {
 
     });
 }
+
 class SpeedrunChart extends React.Component {
 
+
     componentDidMount() {
+        Chart.plugins.register(zoom)
         fetchData().then(data => {
         drawChart('speedchart', data)
         this.forceUpdate()
