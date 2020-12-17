@@ -15,6 +15,19 @@ const options = {
       top: 10,
     },
   },
+  tooltips: {
+    callbacks: {
+      label: function(tooltipItem, data) {
+        var label = data.datasets[tooltipItem.datasetIndex].label;
+        label += ": ";
+        label += moment.duration(tooltipItem.yLabel, 's').format("hh:mm:ss");
+        return label;
+      },
+    },
+    mode: 'x',
+    intersect: 'false',
+    position: 'nearest',
+  },
   scales: {
     xAxes:[{
 
@@ -114,12 +127,12 @@ function drawChart(ctx, runs) {
 
   options.plugins.zoom.zoom.rangeMin.y = bounds.yRange[0];
   options.plugins.zoom.zoom.rangeMin.x = bounds.tRange[0];
-  options.plugins.zoom.pan.rangeMin.y = bounds.yRange[0] - 60;
+  options.plugins.zoom.pan.rangeMin.y = bounds.yRange[0] - 60; // TODO not arbitrary
   options.plugins.zoom.pan.rangeMin.x = bounds.tRange[0];
 
   options.plugins.zoom.zoom.rangeMax.y = bounds.yRange[1];
   options.plugins.zoom.zoom.rangeMax.x = bounds.tRange[1];
-  options.plugins.zoom.pan.rangeMax.y = bounds.yRange[1] + 60;
+  options.plugins.zoom.pan.rangeMax.y = bounds.yRange[1] + 60; // TODO not arbitrary
   options.plugins.zoom.pan.rangeMax.x = bounds.tRange[1];
 
   return new Chart('speedchart', {
