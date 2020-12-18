@@ -13,7 +13,8 @@ It shows you:
 
 # TODO
 - [ ] game and variables as arguments
-- [ ] format time in the window you get when hovering over a dot
+- [x] format time in the window you get when hovering over a dot
+- [x] scrolling and panning
 - [ ] more agressive log scaling
 - [ ] only one dot selected when hovering over one
 - [ ] toggle for expanding the line to the current day
