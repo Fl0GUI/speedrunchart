@@ -17,6 +17,7 @@ It shows you:
 - [x] scrolling and panning
 - [ ] more agressive log scaling
 - [ ] only one dot selected when hovering over one
+- [ ] better ticks
 - [ ] toggle for expanding the line to the current day
 - [ ] default selection of runners
 - [ ] do something about white lines being invisible against the white background
