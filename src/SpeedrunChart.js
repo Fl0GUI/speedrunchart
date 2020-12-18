@@ -52,37 +52,6 @@ function fetchData(players=[]) {
     )))
   }).then(e => {console.log(e); return e});
 }
-    //        return fetchJson(leaderboardUri, `?game=${gameID}&category=${categoryID}&status=verified&orderby=submitted&embed=players&direction=desc&var-${variableKey}=${variableVal}`);
-    //    }
-    //    ).then((leaderboard) => { // Get leaderboard Give players with runs
-    //        return Promise.all(leaderboard.data.players.data.slice(0,nplayers)
-    //            .map((player) => {
-    //                const runs = findLink(player, "runs");
-    //                // set query string
-    //                const query = "&game=" + gameID +
-    //                    "&category=" + categoryID + 
-    //                    "&status=verified" +
-    //                    //"&var-" + variableKey + "=" + variableVal + Doesn't work for runs?
-    //                    "&orderby=date" +
-    //                    "&direction=asc" +
-    //                    "&embed=players";
-    //                return fetchJson(runs, query);
-    //            }));
-    //    }
-    //    ).then((players) => { // Get players with runs Give player wiwth runs but filtered
-    //        return players.map((player) => {
-    //            var best = player.data[0].times.primary_t;
-    //            player.data = player.data.filter((run) => {
-    //                var res = run.values[variableKey] === variableVal &&
-    //                    run.times.primary_t <= best;
-    //                best = run.times.primary_t;
-    //                return res
-    //            });
-    //            return player;
-    //        });
-
-//  });
-//}
 
 class SpeedrunChart extends React.Component {
 
@@ -96,7 +65,7 @@ class SpeedrunChart extends React.Component {
   }
 
   render() {
-    // TODO add game and category form input 
+    // TODO add game, category and users form input 
     return (
       <div>
       <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.1"></script>
