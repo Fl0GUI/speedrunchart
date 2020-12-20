@@ -1,18 +1,10 @@
 import React from 'react';
+import ChartForm from './ChartForm.js';
 import drawChart from  './ChartHelper.js';
 import Chart from 'chart.js';
 import zoom from 'chartjs-plugin-zoom';
-var fetchUrl = require('node-fetch');
+import { fetchJson, findLink, fetchLink } from './utils.js';
 
-function fetchJson(uri, query="") {
-  return fetchUrl(uri + query).then(resp => resp.json());
-}
-function findLink(o, linkname, pre=(o)=>o) {
-  return pre(o).links.filter((e) => e.rel === linkname)[0].uri;
-}
-function fetchLink(o, linkname, query="", pre) {
-  return fetchJson(findLink(o, linkname, pre), query);
-}
 function passPromise(v) {
   return new Promise((res, rej) => res(v));
 }
@@ -50,29 +42,41 @@ function fetchData(players=[]) {
             data: o.data.filter(r => filterRunOnVarable(r, variableKey, variableVal)),
           }})
     )))
-  }).then(e => {console.log(e); return e});
+  });//.then(e => {console.log(e); return e});
 }
 
 class SpeedrunChart extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.formSubmit = this.formSubmit.bind(this);
+  }
 
   componentDidMount() {
     Chart.plugins.register(zoom)
-    fetchData(['alegendarybagel', "nerfirelia"]).then(data => {
+    fetchData(['tinkerknight', "Gwonkee", "nerfirelia"]).then(data => {
       drawChart('speedchart', data)
       this.forceUpdate()
     });
   }
 
+  formSubmit(gameid, categoryid, vars) {
+    console.log(gameid, categoryid, vars);
+    this.setState({});
+  }
+
   render() {
     // TODO add game, category and users form input 
     return (
+      <>
+      <ChartForm onSubmit={this.formSubmit}/>
       <div>
       <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.1"></script>
       <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
       <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@0.7.4"></script>
       <canvas id='speedchart' width='400' height='400'></canvas>
       </div>
+      </>
     )
   }
 }
