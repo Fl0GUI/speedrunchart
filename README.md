@@ -12,7 +12,8 @@ It shows you:
 ![screenshot](https://i.imgur.com/KXgycN6.png)
 
 # TODO
-- [ ] game and variables as arguments
+- [ ] game and variables as arguments (almost)
+- [ ] users as arguments
 - [x] format time in the window you get when hovering over a dot
 - [x] scrolling and panning
 - [ ] more agressive log scaling
