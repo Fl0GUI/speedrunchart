@@ -22,5 +22,6 @@ It shows you:
 - [ ] default selection of runners
 - [ ] do something about white lines being invisible against the white background
 - [ ] overall chart scaling on a page
+- [ ] fix order in tooltip
 - [ ] somehow make it not a total mess when a lot of runners are active. example:
 ![example](https://i.imgur.com/oX7Vvmv.png)
